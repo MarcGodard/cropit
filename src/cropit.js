@@ -98,10 +98,6 @@ class Cropit {
 
     this.zoomer = new Zoomer();
 
-    if (this.options.allowDragNDrop) {
-      $.event.props.push('dataTransfer');
-    }
-
     this.bindListeners();
 
     if (this.options.imageState && this.options.imageState.src) {
@@ -113,11 +109,6 @@ class Cropit {
     this.$fileInput.on('change.cropit', this.onFileChange.bind(this));
     this.$imageContainer.on(EVENTS.PREVIEW, this.onPreviewEvent.bind(this));
     this.$zoomSlider.on(EVENTS.ZOOM_INPUT, this.onZoomSliderChange.bind(this));
-
-    if (this.options.allowDragNDrop) {
-      this.$imageContainer.on('dragover.cropit dragleave.cropit', this.onDragOver.bind(this));
-      this.$imageContainer.on('drop.cropit', this.onDrop.bind(this));
-    }
   }
 
   unbindListeners() {

@@ -270,10 +270,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      this.zoomer = new _Zoomer2['default']();
 
-	      if (this.options.allowDragNDrop) {
-	        _jquery2['default'].event.props.push('dataTransfer');
-	      }
-
 	      this.bindListeners();
 
 	      if (this.options.imageState && this.options.imageState.src) {
@@ -286,11 +282,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.$fileInput.on('change.cropit', this.onFileChange.bind(this));
 	      this.$imageContainer.on(_constants.EVENTS.PREVIEW, this.onPreviewEvent.bind(this));
 	      this.$zoomSlider.on(_constants.EVENTS.ZOOM_INPUT, this.onZoomSliderChange.bind(this));
-
-	      if (this.options.allowDragNDrop) {
-	        this.$imageContainer.on('dragover.cropit dragleave.cropit', this.onDragOver.bind(this));
-	        this.$imageContainer.on('drop.cropit', this.onDrop.bind(this));
-	      }
 	    }
 	  }, {
 	    key: 'unbindListeners',
